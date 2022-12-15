@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@tots/cloud-storage": {
+      "projectType": "library",
+      "root": "projects/tots/cloud-storage",
+      "sourceRoot": "projects/tots/cloud-storage/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tots/cloud-storage/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tots/cloud-storage/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tots/cloud-storage/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/tots/cloud-storage/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "d4a07201-b873-4f3f-978c-58db0dfb8fc8"
   }
 }
