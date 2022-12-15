@@ -21,4 +21,4 @@ import { TotsCloudStorageDirective } from './directives/tots-cloud-storage.direc
     }
   ]
 })
-export class CloudStorageModule { }
+export class TotsCloudStorageModule { }
