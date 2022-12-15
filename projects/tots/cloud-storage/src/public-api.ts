@@ -14,6 +14,11 @@ export * from './lib/entities/tots-file';
 export * from './lib/services/tots-cloud-storage.service';
 
 /**
+ * Directives
+ */
+export * from './lib/directives/tots-cloud-storage.directive';
+
+/**
  * Modules
  */
 export * from './lib/cloud-storage.module';
