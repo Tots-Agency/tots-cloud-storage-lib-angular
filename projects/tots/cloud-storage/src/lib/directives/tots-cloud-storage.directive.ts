@@ -3,7 +3,8 @@ import { TotsFile } from '../entities/tots-file';
 import { TotsCloudStorageService } from '../services/tots-cloud-storage.service';
 
 @Directive({
-  selector: '[totsCloudStorage]'
+    selector: '[totsCloudStorage]',
+    standalone: false
 })
 export class TotsCloudStorageDirective {
 
