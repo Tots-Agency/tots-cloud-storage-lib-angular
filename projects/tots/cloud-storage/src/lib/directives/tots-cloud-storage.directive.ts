@@ -1,9 +1,11 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 import { TotsFile } from '../entities/tots-file';
 import { TotsCloudStorageService } from '../services/tots-cloud-storage.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
-  selector: '[totsCloudStorage]'
+  selector: '[totsCloudStorage]',
+  standalone: false
 })
 export class TotsCloudStorageDirective {
 
@@ -35,7 +37,9 @@ export class TotsCloudStorageDirective {
   }
 
   uploadFile(file: File) {
-    this.cloudStorage.upload(file).subscribe(result => {
+    this.cloudStorage.upload(file).pipe(
+      takeUntilDestroyed()
+    ).subscribe(result => {
       this.fileUploaded.emit(result);
 
       this.numFilesUploading++;
